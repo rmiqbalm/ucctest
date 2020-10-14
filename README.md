@@ -39,3 +39,6 @@ Need to setup the config for **REST Webservice** and **Client** application
   // BASE URL
   $base_url = ''; // Set BASE URL
   ```
+  
+## Unit Tests
+Still on progress and will be update soon
