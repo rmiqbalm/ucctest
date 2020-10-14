@@ -75,7 +75,47 @@
          * Check Input (sanitize) Engine Displacement function
          */ 
         public function checkInputEngineDisplacement($input) {
+            $input = str_replace(' ','',$input);
+            $input = strtoupper($input);
             
+            if( strpos($input,'CC') ){
+                $input = str_replace('CC','',$input);
+            }elseif( strpos($input,'L') ){
+                $input = str_replace('L','',$input);
+                $input = $this->liter_cc($input);
+            }
+
+            return $input;
+        }
+        
+        /**
+         * Convert Liter to Cubic Centimeter value
+         * Returns CC value
+         * @author  Iqbal
+         */
+        public function liter_cc($value){
+            $cc_val = 1000;
+            return $value * $cc_val;
+        }
+        
+        /**
+         * Convert Liter to Cubic Inch value
+         * Returns CI value
+         * @author  Iqbal
+         */
+        public function liter_ci($value){
+            $ci_val = 61.0237;
+            return $value * $cc_val;
+        }
+        
+        /**
+         * Convert Cubic Inch to Liter value
+         * Returns Liter value
+         * @author  Iqbal
+         */
+        public function cc_liter($value){
+            $cc_val = 1000;
+            return $value / $cc_val;
         }
     }
 ?>
